@@ -1,0 +1,313 @@
+package onlineexamination;
+
+import java.util.Scanner;
+
+public class OnlineExamination 
+{
+    String name, email, password, login_email, login_password;
+    
+    static Scanner s=new Scanner(System.in);
+    static int num, count1=0, count2=0;
+    int math_answer1, math_answer2, math_answer3, math_answer4, math_answer5;
+    int eng_answer1, eng_answer2, eng_answer3, eng_answer4, eng_answer5;
+    
+    public static void main(String[] args)
+    {
+        System.out.println("============Welcome To Online Examination==============");
+        System.out.println("                                             ");
+        System.out.println("For give Examination Please First Do Register");
+        System.out.println("-----------------------------------------");
+        System.out.println("For registrationn Please Enter '1' :");
+        
+        num=s.nextInt();
+           
+        OnlineExamination ob=new OnlineExamination();
+           if(num==1)
+           {
+              ob.registration();
+           }
+           else
+           {
+              System.out.println("Please Enter Valid Option :");
+           }
+    }
+    
+    void registration()
+    {
+        System.out.println("Enter Your Name :");
+        name=s.next();
+        System.out.println("                  ");
+        System.out.println("Enter Your Email :");
+        email=s.next();
+        System.out.println("                  ");
+        System.out.println("Enter Your Password");
+        password=s.next();
+        System.out.println("                   ");
+        System.out.println("You Registration Is Complete !!!");
+        System.out.println("--------------------------------");
+        System.out.println("For Start Exam Please Login with Email & password ");
+        login();
+    }
+    void login()
+    {
+        System.out.println("                                ");
+        System.out.println("Enter Your Email id :");
+        login_email=s.next();
+        System.out.println("Enter Your Password  :");
+        login_password=s.next();
+       
+        if(login_email.equals(email) && login_password.equals(password))
+        {
+            startExam();
+        }
+        else
+        {
+            System.out.println("------------------------------------");
+            System.out.println("Please Enter Valid Email & Password ");
+            login();
+        }
+    }
+    
+    void startExam()
+    {
+    	System.out.println("---------------------------");
+        System.out.println("Welcome :"+name);
+        System.out.println("                     ");
+        System.out.println("For Start Examination Enter '1' ");
+        int opt1=s.nextInt();
+        if(opt1==1)
+        {
+            maths();
+        }
+        else
+        {
+            System.out.println("Invalid !! ");
+            startExam();
+        }
+        
+    }
+    void maths()
+    {
+        System.out.println("============Read The Instruction Carefully=============");
+        System.out.println("1.  All Questions are Compulsory.");
+        System.out.println("2.  Each Question Carry equal marks.");
+        System.out.println("                                     ");
+        System.out.println("Subject :-  MATHS");
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 1. What is the sum of  5+2 =");
+        System.out.println("1. 6");
+        System.out.println("2. 8");
+        System.out.println("3. 7");
+        System.out.println("4. 9");
+        System.out.println("                ");
+        math_answer1=s.nextInt();
+        if(math_answer1==3)
+        {
+           count1++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 2. What is Next Prime Number After 1,2,5,?");
+        System.out.println("1. 6");
+        System.out.println("2. 7");
+        System.out.println("3. 8");
+        System.out.println("4. 9");
+        System.out.println("                  ");
+        math_answer2=s.nextInt();
+        if(math_answer2==2)
+        {
+            count1++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 3. What is the Multiplication of 12*5 =");
+        System.out.println("1. 60");
+        System.out.println("2. 45");
+        System.out.println("3. 70");
+        System.out.println("4. 55");
+        System.out.println("                  ");
+        math_answer3=s.nextInt();
+        if(math_answer3==1)
+        {
+           count1++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 4. What will be the Next odd number After 23 =");
+        System.out.println("1. 24");
+        System.out.println("2. 22");
+        System.out.println("3. 21");
+        System.out.println("4. None");
+        System.out.println("                  ");
+        math_answer4=s.nextInt();
+        if(math_answer4==4)
+        {
+           count1++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 5. What is the subtraction of 34-23 =");
+        System.out.println("1. -11");
+        System.out.println("2. -21");
+        System.out.println("3. 21");
+        System.out.println("4. 11");
+        System.out.println("                  ");
+        math_answer5=s.nextInt();
+        if(math_answer5==4)
+        {
+            count1++;
+        }
+        
+        next();
+    }
+    
+    void next()
+    {
+        System.out.println("-------------------------------");
+        System.out.println("For Move To next subject Enter '2'");
+        int opt2=s.nextInt();
+        if(opt2==2)
+        {
+           english();
+        }
+        else
+        {
+            System.out.println("Invalid !!");
+            next();
+        }
+    }
+    
+    void english()
+    {
+        System.out.println("Subject :- ENGLISH");
+        System.out.println("                  ");
+        System.out.println("-------------------------------");
+        System.out.println("Q 1. Can you write with .... pen");
+        System.out.println("1. by");
+        System.out.println("2. in");
+        System.out.println("3. this");
+        System.out.println("4. on");
+        System.out.println("                ");
+        eng_answer1=s.nextInt();
+        if(eng_answer1==3)
+        {
+            count2++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 2. Ankur writes .... his right hand");
+        System.out.println("1. with");
+        System.out.println("2. on");
+        System.out.println("3. by");
+        System.out.println("4. in");
+        System.out.println("                ");
+        eng_answer2=s.nextInt();
+        if(eng_answer2==1)
+        {
+            count2++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 3. He comes .... a car");
+        System.out.println("1. on");
+        System.out.println("2. by");
+        System.out.println("3. with");
+        System.out.println("4. in");
+        System.out.println("                ");
+        eng_answer3=s.nextInt();
+        if(eng_answer3==2)
+        {
+            count2++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 4. you should think .... the matter");
+        System.out.println("1. for");
+        System.out.println("2. to");
+        System.out.println("3. at");
+        System.out.println("4. about");
+        System.out.println("                ");
+        eng_answer4=s.nextInt();
+        if(eng_answer4==4)
+        {
+            count2++;
+        }
+        
+        System.out.println("-------------------------------");
+        System.out.println("Q 5. My grand  father will come here .... a week");
+        System.out.println("1. with");
+        System.out.println("2. within");
+        System.out.println("3. before");
+        System.out.println("4. after");
+        System.out.println("                ");
+        eng_answer5=s.nextInt();
+        if(eng_answer5==2)
+        {
+            count2++;
+        }
+        
+        examSummmary();
+    }
+    
+    void examSummmary()
+    {
+         System.out.println("Your Score in MATHS is :"+count1);
+         System.out.println("your Score in ENGLISH is :"+count2);
+         System.out.println("---------------------------------");
+         System.out.println("Total Score is :"+(count1+count2));
+         System.out.println("                      ");
+         System.out.println("---------------EXAM SUMMARY------------------");
+         System.out.println("Subject :- MATHS");
+         System.out.println("                      ");
+         System.out.println("Q 1.  your option is :"+math_answer1);
+         System.out.println("      Actual option is : 3");
+         System.out.println("                              ");
+      
+         System.out.println("Q 2.  your option is :"+math_answer2);
+         System.out.println("      Actual option is : 2");
+         System.out.println("                              ");
+         
+         System.out.println("Q 3.  your option is :"+math_answer3);
+         System.out.println("      Actual option is : 1");
+         System.out.println("                              ");
+         
+         System.out.println("Q 4.  your option is :"+math_answer4);
+         System.out.println("      Actual option is : 4");
+         System.out.println("                              ");
+         
+         System.out.println("Q 5.  your option is :"+math_answer5);
+         System.out.println("      Actual option is : 4");
+         System.out.println("                              ");
+         
+         System.out.println("----------------------------------");
+         System.out.println("Subject :- ENGLISH");
+         System.out.println("                      ");
+         System.out.println("Q 1.  your option is :"+eng_answer1);
+         System.out.println("      Actual option is : 3");
+         System.out.println("                              ");
+         
+         System.out.println("Q 2.  your option is :"+eng_answer2);
+         System.out.println("      Actual option is : 1");
+         System.out.println("                              ");
+         
+         System.out.println("Q 3.  your option is :"+eng_answer3);
+         System.out.println("      Actual option is : 2");
+         System.out.println("                              ");
+         
+         System.out.println("Q 4.  your option is :"+eng_answer4);
+         System.out.println("      Actual option is : 4");
+         System.out.println("                              ");
+         
+         System.out.println("Q 5.  your option is :"+eng_answer5);
+         System.out.println("      Actual option is : 2");
+         System.out.println("                              ");
+         
+         exit();
+    }
+    
+    void exit()
+    {
+        System.exit(0);
+    }
+}
